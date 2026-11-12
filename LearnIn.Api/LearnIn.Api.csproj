@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="HotChocolate.AspNetCore" Version="16.8.0-p.9" />
+        <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="16.8.0-p.9" />
+        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="16.8.0-p.9" />
+        <PackageReference Include="MediatR" Version="14.3.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.14" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.14"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.14" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.14">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.14" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.14">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Projection\GraphQL\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LearnIn.Application\LearnIn.Application.csproj" />
+      <ProjectReference Include="..\LearnIn.Domain\LearnIn.Domain.csproj" />
+      <ProjectReference Include="..\LearnIn.Infrastructure\LearnIn.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
