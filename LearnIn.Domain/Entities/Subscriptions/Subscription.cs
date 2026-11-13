@@ -14,6 +14,7 @@ public class Subscription : Entity<int>
     public decimal PricePaid { get; set; }
 
     public int TeacherId { get; set; }
+    public User Teacher { get; set; }
     
     public bool IsCurrentlyActive => DateTime.UtcNow >= StartDate && DateTime.UtcNow <= EndDate;
 }

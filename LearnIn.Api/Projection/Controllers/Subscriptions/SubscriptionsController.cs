@@ -7,6 +7,8 @@ namespace LearnIn.Api.Projection.Controllers.Subscriptions;
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
+
+[Authorize]
 public class SubscriptionsController : BaseController
 {
     private readonly IMediator _mediator;

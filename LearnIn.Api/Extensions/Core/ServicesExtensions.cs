@@ -2,11 +2,10 @@
 using LearnIn.Infrastructure;
 using LearnIn.Api.Extensions.GraphQL;
 using LearnIn.Infrastructure.Security;
-
+using LearnIn.Application.Features.Auth.Login;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
-using Microsoft.OpenApi.Models;
 
 namespace LearnIn.Api.Extensions.Core;
 
@@ -66,7 +65,8 @@ public static class ServicesExtensions
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "E-Commerce", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "LearnIn API", Version = "v1" });
+        
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Description = "JWT Authorization header. Example: \"Bearer {token}\"",
@@ -75,19 +75,10 @@ public static class ServicesExtensions
                 Type = SecuritySchemeType.Http,
                 Scheme = "Bearer"
             });
-            c.AddSecurityRequirement(new OpenApiSecurityRequirement
+
+            c.AddSecurityRequirement(document => new OpenApiSecurityRequirement
             {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    Array.Empty<string>()
-                }
+                [new OpenApiSecuritySchemeReference("Bearer", document)] = []
             });
         });
 

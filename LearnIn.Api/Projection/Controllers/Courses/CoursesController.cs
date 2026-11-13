@@ -31,15 +31,5 @@ public class CoursesController : BaseController
         return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
     }
 
-    [HttpGet("my-subscribed")]
-    public async Task<IActionResult> GetMySubscribedCourses()
-    {
-        var studentId = GetCurrentUserId();
-
-        var query = new GetStudentSubscribedCoursesQuery(studentId);
-
-        var result = await _mediator.Send(query);
-
-        return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
-    }
+    
 }

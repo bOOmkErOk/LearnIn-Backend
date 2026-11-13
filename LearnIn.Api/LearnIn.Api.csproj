@@ -23,11 +23,8 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.OpenApi" Version="3.11.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Projection\GraphQL\" />
     </ItemGroup>
 
     <ItemGroup>
