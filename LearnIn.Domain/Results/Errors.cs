@@ -31,6 +31,13 @@ public sealed record Errors(int Status, string Message)
         new(400, "Password must be at least 8 characters with uppercase, lowercase, and numbers");
 
     // --- Authentication Errors qvevitt ---
+    
+    public static Errors InvalidCode() =>
+        new(400, "The verification code you entered is incorrect");
+
+    public static Errors CodeExpired() =>
+        new(400, "The verification code has expired. Please request a new one");
+    
     public static Errors Unauthorized() =>
         new(401, "Your session has expired. Please log in again");
 

@@ -16,8 +16,6 @@ public interface IDataContext
     
     DbSet<Lesson> Lessons { get; set; }
     
-    DbSet<StudentCourse> StudentCourses { get; set; }
-    
     DbSet<EmailVerification>  EmailVerifications { get; set; }
     
     Task<int> SaveChangesAsync(CancellationToken ct);

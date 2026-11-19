@@ -16,6 +16,5 @@ public sealed class UserType : ObjectType<User>
         descriptor.Ignore(u => u.Password);
         descriptor.Ignore(u => u.Balance);
         descriptor.Ignore(u => u.Subscriptions);
-        descriptor.Ignore(u => u.ActivatedCourses);
     }
 }

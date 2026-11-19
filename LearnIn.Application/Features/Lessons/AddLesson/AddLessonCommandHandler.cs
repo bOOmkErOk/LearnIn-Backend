@@ -5,7 +5,7 @@ using LearnIn.Domain.Entities.Courses;
 using LearnIn.Domain.Results;
 
 
-namespace LearnIn.Application.Features.Lessons;
+namespace LearnIn.Application.Features.Lessons.AddLesson;
 
 public class AddLessonCommandHandler : IRequestHandler<AddLessonCommand, Result<int>>
 {
@@ -16,7 +16,7 @@ public class AddLessonCommandHandler : IRequestHandler<AddLessonCommand, Result<
         _context = context;
     }
 
-    public async Task<Result<int>> Handle(AddLessonCommand request, CancellationToken cancellationToken)
+    public async Task<Result<int>> Handle(AddLessonCommand request, CancellationToken ct)
     {
         if (string.IsNullOrWhiteSpace(request.Title))
         {
@@ -34,7 +34,7 @@ public class AddLessonCommandHandler : IRequestHandler<AddLessonCommand, Result<
         }
 
         var course = await _context.Courses
-            .FirstOrDefaultAsync(c => c.Id == request.CourseId, cancellationToken);
+            .FirstOrDefaultAsync(c => c.Id == request.CourseId, ct);
 
         if (course == null)
         {
@@ -56,8 +56,8 @@ public class AddLessonCommandHandler : IRequestHandler<AddLessonCommand, Result<
             SequenceNumber = request.SequenceNumber
         };
 
-        await _context.Lessons.AddAsync(lesson, cancellationToken);
-        var result = await _context.SaveChangesAsync(cancellationToken);
+        await _context.Lessons.AddAsync(lesson, ct);
+        var result = await _context.SaveChangesAsync(ct);
 
         return result > 0 
             ? Result<int>.Success(lesson.Id) 

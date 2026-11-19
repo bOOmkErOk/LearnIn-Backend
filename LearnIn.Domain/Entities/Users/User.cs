@@ -18,12 +18,12 @@ public class User : Entity<int>
     public string Password { get; set; } = string.Empty;
     
     public UserEnums Role { get; set; }
+    
     public bool IsEmailVerified { get; set; } = false;
+    
     public EmailVerification? EmailVerification { get; set; }
 
     public ICollection<Course> CreatedCourses { get; set; } = new List<Course>();
-
-    public ICollection<StudentCourse> ActivatedCourses { get; set; } = new List<StudentCourse>();
-
+    
     public ICollection<Subscription> Subscriptions { get; set; } = new List<Subscription>();
 }

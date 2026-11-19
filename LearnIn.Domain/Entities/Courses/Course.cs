@@ -11,5 +11,4 @@ public class Course : Entity<int>
     
     public ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
 
-    public ICollection<StudentCourse> StudentActivations { get; set; } = new List<StudentCourse>();
 }

@@ -20,7 +20,7 @@ public sealed class EmailService : IEmailService
         var appPassword = _config["EmailSettings:Password"];
 
         using var mail = new MailMessage();
-        mail.From = new MailAddress(senderEmail!, "E-Commerce");
+        mail.From = new MailAddress(senderEmail!, "LearnIn");
         mail.IsBodyHtml = true;
         mail.Subject = subject;
         mail.To.Add(email);

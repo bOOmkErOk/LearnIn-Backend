@@ -21,8 +21,6 @@ public class DataContext : DbContext, IDataContext
     
     public DbSet<Lesson> Lessons { get; set; }
     
-    public DbSet<StudentCourse> StudentCourses { get; set; }
-    
     public DbSet<EmailVerification>  EmailVerifications { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)

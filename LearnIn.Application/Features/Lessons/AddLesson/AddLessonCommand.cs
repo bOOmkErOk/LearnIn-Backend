@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using LearnIn.Domain.Results;
 
-namespace LearnIn.Application.Features.Lessons;
+namespace LearnIn.Application.Features.Lessons.AddLesson;
 
 public record AddLessonCommand(
     int CourseId, 

@@ -1,4 +1,4 @@
-﻿namespace LearnIn.Application.Features.Lessons;
+﻿namespace LearnIn.Application.Features.Lessons.AddLesson;
 
 public record AddLessonRequest(
     int CourseId, 

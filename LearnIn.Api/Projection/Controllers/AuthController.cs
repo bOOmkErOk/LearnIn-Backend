@@ -1,6 +1,7 @@
 ﻿using LearnIn.Application.Features.Auth.ForgotPassword;
 using LearnIn.Application.Features.Auth.Login;
 using LearnIn.Application.Features.Auth.Register;
+using LearnIn.Application.Features.Auth.VerifyEmail;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,15 @@ public class AuthController : BaseController
     [HttpPost("forgot-password")]
     [AllowAnonymous]
     public async Task<IActionResult> ForgotPassword(ForgotPasswordCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return result.IsSuccess ? Ok() : BadRequest(result.Error);
+    }
+
+    [HttpPut("verify-email")]
+    [AllowAnonymous]
+
+    public async Task<IActionResult> VerifyEmail(VerifyEmailCommand command)
     {
         var result = await _mediator.Send(command);
         return result.IsSuccess ? Ok() : BadRequest(result.Error);

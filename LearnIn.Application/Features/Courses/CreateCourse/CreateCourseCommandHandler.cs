@@ -5,7 +5,7 @@ using LearnIn.Domain.Results;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace LearnIn.Application.Features.Courses;
+namespace LearnIn.Application.Features.Courses.CreateCourse;
 
 public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, Result<int>>
 {
